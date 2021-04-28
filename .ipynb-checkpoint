@@ -1,0 +1,82 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "2021-03-10 14:12:38,736 : INFO : loading Word2Vec object from word2vec.model\n"
+     ]
+    },
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "[Errno 2] No such file or directory: 'word2vec.model'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-2-4656815b9008>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[0;32m      3\u001b[0m \u001b[0mlogging\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mbasicConfig\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mformat\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;34m'%(asctime)s : %(levelname)s : %(message)s'\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mlevel\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mlogging\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mINFO\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      4\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m----> 5\u001b[1;33m \u001b[0mmodel\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mWord2Vec\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mload\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"word2vec.model\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      6\u001b[0m \u001b[0mw1\u001b[0m \u001b[1;33m=\u001b[0m \u001b[1;34m\"train\"\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      7\u001b[0m \u001b[0ma\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mmodel\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mwv\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mmost_similar\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mpositive\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;34m'pilot'\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m'drive'\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mtopn\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;36m20\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\lib\\site-packages\\gensim\\models\\word2vec.py\u001b[0m in \u001b[0;36mload\u001b[1;34m(cls, *args, **kwargs)\u001b[0m\n\u001b[0;32m   1139\u001b[0m         \"\"\"\n\u001b[0;32m   1140\u001b[0m         \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 1141\u001b[1;33m             \u001b[0mmodel\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0msuper\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mWord2Vec\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mcls\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mload\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m*\u001b[0m\u001b[0margs\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;33m**\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   1142\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1143\u001b[0m             \u001b[1;31m# for backward compatibility for `max_final_vocab` feature\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\lib\\site-packages\\gensim\\models\\base_any2vec.py\u001b[0m in \u001b[0;36mload\u001b[1;34m(cls, *args, **kwargs)\u001b[0m\n\u001b[0;32m   1228\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1229\u001b[0m         \"\"\"\n\u001b[1;32m-> 1230\u001b[1;33m         \u001b[0mmodel\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0msuper\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mBaseWordEmbeddingsModel\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mcls\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mload\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m*\u001b[0m\u001b[0margs\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;33m**\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   1231\u001b[0m         \u001b[1;32mif\u001b[0m \u001b[1;32mnot\u001b[0m \u001b[0mhasattr\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmodel\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;34m'ns_exponent'\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1232\u001b[0m             \u001b[0mmodel\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mns_exponent\u001b[0m \u001b[1;33m=\u001b[0m \u001b[1;36m0.75\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\lib\\site-packages\\gensim\\models\\base_any2vec.py\u001b[0m in \u001b[0;36mload\u001b[1;34m(cls, fname_or_handle, **kwargs)\u001b[0m\n\u001b[0;32m    600\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    601\u001b[0m         \"\"\"\n\u001b[1;32m--> 602\u001b[1;33m         \u001b[1;32mreturn\u001b[0m \u001b[0msuper\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mBaseAny2VecModel\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mcls\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mload\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mfname_or_handle\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;33m**\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    603\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    604\u001b[0m     \u001b[1;32mdef\u001b[0m \u001b[0msave\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mfname_or_handle\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;33m**\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\lib\\site-packages\\gensim\\utils.py\u001b[0m in \u001b[0;36mload\u001b[1;34m(cls, fname, mmap)\u001b[0m\n\u001b[0;32m    433\u001b[0m         \u001b[0mcompress\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0msubname\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mSaveLoad\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_adapt_by_suffix\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mfname\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    434\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 435\u001b[1;33m         \u001b[0mobj\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0munpickle\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mfname\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    436\u001b[0m         \u001b[0mobj\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_load_specials\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mfname\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mmmap\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mcompress\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0msubname\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    437\u001b[0m         \u001b[0mlogger\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0minfo\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"loaded %s\"\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mfname\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\lib\\site-packages\\gensim\\utils.py\u001b[0m in \u001b[0;36munpickle\u001b[1;34m(fname)\u001b[0m\n\u001b[0;32m   1393\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1394\u001b[0m     \"\"\"\n\u001b[1;32m-> 1395\u001b[1;33m     \u001b[1;32mwith\u001b[0m \u001b[0mopen\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mfname\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;34m'rb'\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;32mas\u001b[0m \u001b[0mf\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   1396\u001b[0m         \u001b[1;31m# Because of loading from S3 load can't be used (missing readline in smart_open)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1397\u001b[0m         \u001b[1;32mif\u001b[0m \u001b[0msys\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mversion_info\u001b[0m \u001b[1;33m>\u001b[0m \u001b[1;33m(\u001b[0m\u001b[1;36m3\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m0\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\lib\\site-packages\\smart_open\\smart_open_lib.py\u001b[0m in \u001b[0;36mopen\u001b[1;34m(uri, mode, buffering, encoding, errors, newline, closefd, opener, ignore_ext, transport_params)\u001b[0m\n\u001b[0;32m    172\u001b[0m         \u001b[0mtransport_params\u001b[0m \u001b[1;33m=\u001b[0m \u001b[1;33m{\u001b[0m\u001b[1;33m}\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    173\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 174\u001b[1;33m     fobj = _shortcut_open(\n\u001b[0m\u001b[0;32m    175\u001b[0m         \u001b[0muri\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    176\u001b[0m         \u001b[0mmode\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\lib\\site-packages\\smart_open\\smart_open_lib.py\u001b[0m in \u001b[0;36m_shortcut_open\u001b[1;34m(uri, mode, ignore_ext, buffering, encoding, errors, newline)\u001b[0m\n\u001b[0;32m    344\u001b[0m         \u001b[0mopen_kwargs\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;34m'errors'\u001b[0m\u001b[1;33m]\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0merrors\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    345\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 346\u001b[1;33m     \u001b[1;32mreturn\u001b[0m \u001b[0m_builtin_open\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mlocal_path\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mmode\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mbuffering\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mbuffering\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;33m**\u001b[0m\u001b[0mopen_kwargs\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    347\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    348\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: 'word2vec.model'"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "from gensim.models import Word2Vec\n",
+    "import logging\n",
+    "logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)\n",
+    "\n",
+    "model = Word2Vec.load(\"word2vec.model\")\n",
+    "w1 = \"train\"\n",
+    "a = model.wv.most_similar(positive=['pilot','drive'], topn=20)\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
